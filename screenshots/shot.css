@@ -1,0 +1,264 @@
+/* App Store screenshot scenes for Glance.
+   Authored at the 6.7" logical size (430x932); rendered at deviceScaleFactor 3
+   -> 1290x2796 px PNGs. Charcoal + single amber, matching the app + site. */
+
+:root {
+  --bg: #0A0A0B;
+  --surface: #161618;
+  --surface-raised: #212124;
+  --text: #F5F5F4;
+  --text-secondary: #9A9AA0;
+  --text-tertiary: #8A8A90;
+  --border: #28282B;
+  --accent: #FFB020;
+  --accent-soft: rgba(255, 176, 32, 0.14);
+  --accent-glow: rgba(255, 176, 32, 0.55);
+  --on-accent: #1A1206;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --body: system-ui, -apple-system, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { width: 430px; height: 932px; }
+
+.scene {
+  position: relative;
+  width: 430px;
+  height: 932px;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: var(--body);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  isolation: isolate;
+}
+
+/* one restrained amber glow, top — depth, not decoration */
+.scene::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  width: 560px;
+  height: 460px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 176, 32, 0.12), rgba(255, 176, 32, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* caption block (the "designed" marketing copy above the phone) */
+.caption {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 86px 44px 0;
+  text-align: center;
+}
+.caption h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.caption h2 .amber { color: var(--accent); }
+.caption p {
+  margin-top: 16px;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* device frame */
+.phone-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  margin-bottom: 0; /* full device on-screen so no controls/CTAs get clipped */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.phone {
+  position: relative;
+  width: 300px;
+  height: 640px;
+  border-radius: 52px;
+  background: #050506;
+  padding: 11px;
+  box-shadow:
+    0 0 0 2px #2a2a2e,
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+/* dynamic-island-ish pill */
+.screen::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86px;
+  height: 24px;
+  border-radius: 999px;
+  background: #000;
+  z-index: 10;
+}
+
+/* in-screen status bar */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.statusbar .glyphs { letter-spacing: 1px; opacity: 0.9; }
+
+/* app header inside the screen */
+.app-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 22px 0;
+}
+.app-wordmark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.online {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+.online .dot {
+  width: 7px; height: 7px; border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ---- scene 1: home / "finding someone" radar ---- */
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 24px 28px;
+}
+.radar {
+  position: relative;
+  width: 188px;
+  height: 188px;
+  display: grid;
+  place-items: center;
+}
+.radar .ring {
+  position: absolute;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  inset: 0;
+}
+.radar .ring.r1 { opacity: 0.9; inset: 64px; }
+.radar .ring.r2 { opacity: 0.4; inset: 32px; }
+.radar .ring.r3 { opacity: 0.16; inset: 0; }
+.radar .core {
+  position: relative;
+  width: 64px; height: 64px;
+  border-radius: 999px;
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  display: grid; place-items: center;
+  font-size: 30px;
+  box-shadow: 0 0 32px var(--accent-glow);
+}
+.home .lead {
+  text-align: center;
+}
+.home .lead .k {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.home .lead .s {
+  margin-top: 6px;
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+}
+.cta-pill {
+  width: 100%;
+  padding: 17px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 17px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  box-shadow: 0 0 36px var(--accent-glow);
+}
+.home-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 0 22px;
+  border-top: 1px solid var(--hairline);
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+.home-nav .on { color: var(--text); }
+
+/* ---- scene 2: onboarding vivid question ---- */
+.quiz { flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 24px 20px 30px; }
+.progress { height: 5px; border-radius: 999px; background: var(--border); overflow: hidden; }
+.progress > i { display: block; height: 100%; width: 45%; background: var(--accent); border-radius: 999px; box-shadow: 0 0 12px var(--accent-glow); }
+.q-step { font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; }
+.q-title { font-family: var(--display); font-weight: 800; font-size: 25px; line-height: 1.1; letter-spacing: -0.01em; }
+.opts { display: flex; flex-direction: column; gap: 10px; margin-top: 2px; }
+.opt { padding: 15px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); font-size: 14.5px; color: var(--text); display: flex; align-items: center; gap: 12px; }
+.opt .e { font-size: 18px; }
+.opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+.opt.sel .e { filter: none; }
+
+/* ---- scene 3: matched / connect ---- */
+.match { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 20px 26px; }
+.match .avatar { width: 116px; height: 116px; border-radius: 999px; background: var(--surface-raised); border: 1px solid var(--hairline); display: grid; place-items: center; font-size: 60px; box-shadow: 0 0 54px var(--accent-glow); }
+.match .name { margin-top: 22px; font-family: var(--display); font-weight: 800; font-size: 23px; }
+.match .status { margin-top: 7px; font-size: 12.5px; color: var(--accent); letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 7px; }
+.match .status .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+.match .controls { margin-top: auto; display: flex; align-items: center; gap: 14px; width: 100%; }
+.ctl { width: 52px; height: 52px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; font-size: 19px; color: var(--text-secondary); }
+.next { flex: 1; padding: 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-family: var(--display); font-weight: 800; font-size: 16px; text-align: center; box-shadow: 0 0 30px var(--accent-glow); }
+
+/* ---- scene 4: safety ---- */
+.trust { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 0 20px; }
+.trust .mark { width: 72px; height: 72px; border-radius: 20px; background: var(--surface-raised); border: 1px solid var(--hairline); display: grid; place-items: center; align-self: center; box-shadow: 0 0 40px var(--accent-glow); margin-bottom: 10px; color: var(--accent); font-size: 34px; font-weight: 700; }
+.trow { display: flex; gap: 13px; align-items: flex-start; padding: 15px 15px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+.trow .b { width: 9px; height: 9px; border-radius: 999px; background: var(--accent); margin-top: 5px; flex: none; box-shadow: 0 0 10px var(--accent-glow); }
+.trow .t b { font-family: var(--display); font-weight: 700; font-size: 14.5px; }
+.trow .t span { display: block; color: var(--text-tertiary); font-size: 12.5px; margin-top: 3px; line-height: 1.35; }
