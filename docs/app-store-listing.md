@@ -4,7 +4,7 @@ Draft copy + answers for the App Store submission, written to match the app and
 the live site. Voice is the site's: dry, confident, nonchalant — not salesy.
 
 > **Placeholders to settle before submitting:** the contact email (currently a
-> dead `privacy@glance.app` on the live site — swap for a real inbox), and the
+> dead `leonzhou@berkeley.edu` on the live site — swap for a real inbox), and the
 > screenshots (you must provide). Everything else below is ready to paste.
 
 ## URLs (live now)
@@ -96,12 +96,12 @@ number}}.
 
 Privacy Policy: https://brendanjacobsen02.github.io/glance-site/privacy.html
 Terms / EULA: https://brendanjacobsen02.github.io/glance-site/terms.html
-Contact: {{CONTACT_EMAIL}}
+Contact: leonzhou@berkeley.edu
 ```
 
 ## What's still needed from you (blocks submission, not this doc)
-1. **Contact email** — a working inbox (swap the `privacy@glance.app` placeholder
-   on the site + the `{{CONTACT_EMAIL}}` above).
+1. **Contact email** — a working inbox (swap the `leonzhou@berkeley.edu` placeholder
+   on the site + the `leonzhou@berkeley.edu` above).
 2. **`DEMO_LOGIN` Fly secret** — set `fly secrets set DEMO_LOGIN='+1...:CODE'` and
    put that phone/code in the review notes above (the reviewer bypass — already
    implemented in `server/sms.ts`).
