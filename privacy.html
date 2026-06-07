@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Glance</title>
+    <meta
+      name="description"
+      content="How Glance handles your data: phone verification, live calls that aren't recorded, matching signals, and the third parties involved. Plain and short."
+    />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Display face fetched here (not via @import in styles.css) so the
+         preconnects above are actually used and the request runs in parallel
+         with the CSS — avoids a system-sans flash of the wordmark/headlines. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page">
+      <header class="masthead" aria-label="Glance">
+        <a class="wordmark" href="index.html">Glance</a>
+        <p class="masthead__meta">
+          Campus <span class="sep" aria-hidden="true">·</span> 18+
+          <span class="sep" aria-hidden="true">·</span> video
+        </p>
+      </header>
+
+      <main id="main" class="doc">
+        <p class="doc__eyebrow">Privacy</p>
+        <h1 class="doc__title">Privacy Policy</h1>
+        <p class="doc__meta">Effective June 2026</p>
+
+        <p class="doc__intro">
+          Glance is built and run by an individual developer — not a company.
+          This policy is written plainly because the data story is short: a
+          phone number to keep accounts real, a live call that goes
+          phone-to-phone and is never recorded, and a few signals that help
+          match you with someone worth talking to. Questions or requests go to
+          <a href="mailto:privacy@glance.app">privacy@glance.app</a>.
+        </p>
+
+        <section aria-labelledby="who">
+          <h2 id="who">Who runs Glance</h2>
+          <p>
+            Glance is an independent project operated by a single individual
+            developer. There is no company, parent organization, or legal entity
+            behind it. When this policy says "we" or "I," it means that one
+            operator. You can reach the operator at
+            <a href="mailto:privacy@glance.app">privacy@glance.app</a>.
+          </p>
+        </section>
+
+        <section aria-labelledby="adults">
+          <h2 id="adults">18+ only</h2>
+          <p>
+            Glance is for adults aged 18 and over. It is not directed to anyone
+            under 18, and accounts are not knowingly created for minors. If you
+            believe a minor is using Glance, email
+            <a href="mailto:privacy@glance.app">privacy@glance.app</a> and the
+            account will be removed.
+          </p>
+        </section>
+
+        <section aria-labelledby="collect">
+          <h2 id="collect">What Glance collects, and why</h2>
+
+          <h3>Your phone number</h3>
+          <p>
+            Sign-in is a phone number plus a one-time SMS code. The number is
+            verified through <strong>Twilio</strong> (their Verify service sends
+            the code) and is stored to identify your account, keep duplicates and
+            bots out, and let you sign back in. It is not sold, rented, or used
+            for advertising.
+          </p>
+
+          <h3>Camera and microphone, for live calls</h3>
+          <p>
+            A video call needs your camera and microphone. Glance requests those
+            permissions only when you start a call, and you can revoke them at
+            any time in your device settings. During onboarding a quick face
+            check confirms a real person is present.
+          </p>
+          <p>
+            <strong>Calls are not recorded or stored.</strong> Video and audio
+            travel directly between the two people on the call, peer-to-peer over
+            WebRTC. The Glance server brokers the introduction (who connects to
+            whom) but does not see, record, or keep the contents of your call.
+            When two phones can't reach each other directly, encrypted media may
+            be relayed through a TURN relay from
+            <strong>metered.ca</strong> — it passes the encrypted stream along
+            and does not store it.
+          </p>
+
+          <h3>Matching signals</h3>
+          <p>
+            To match you with someone you'd actually want to talk to, Glance uses
+            the interests and "vibe" you choose during onboarding, plus a light
+            personality read. During onboarding you write
+            <strong>one short free-text answer</strong>; that single answer is
+            sent to <strong>Anthropic</strong> to infer Big-Five personality
+            traits used only for matching. Glance does not use this for
+            advertising or profiling beyond match quality.
+          </p>
+
+          <h3>Call-activity metadata</h3>
+          <p>
+            Glance keeps basic metadata about call activity — things like when a
+            match happened, how long a session lasted, and skip/Next events — to
+            run matchmaking, fight abuse, and improve matching.
+            <strong>This is metadata, not call content</strong>; the words,
+            video, and audio of your conversations are never captured.
+          </p>
+
+          <h3>Safety reports</h3>
+          <p>
+            If you report or block someone, Glance records that report (who, when,
+            and the reason you choose) so it can act on it. Reports may include
+            limited context needed to review the incident, but never a recording
+            of the call. See <a href="terms.html">Terms &amp; Community Rules</a>
+            for how reports are enforced.
+          </p>
+        </section>
+
+        <section aria-labelledby="processors">
+          <h2 id="processors">Third parties Glance relies on</h2>
+          <p>
+            Glance uses a small set of service providers to function. Each
+            handles only the narrow slice of data described below. There are no
+            advertising networks, no analytics SDKs, and no tracking SDKs.
+          </p>
+          <dl>
+            <dt>Twilio</dt>
+            <dd>Sends the SMS verification code to your phone number.</dd>
+
+            <dt>Anthropic</dt>
+            <dd>
+              Receives your one short free-text onboarding answer to infer
+              personality traits used for matching.
+            </dd>
+
+            <dt>Fly.io</dt>
+            <dd>
+              Hosts the self-hosted Glance backend (accounts, matchmaking,
+              signaling).
+            </dd>
+
+            <dt>metered.ca</dt>
+            <dd>
+              Provides a TURN relay that forwards encrypted call media when a
+              direct phone-to-phone connection fails. It stores nothing.
+            </dd>
+          </dl>
+        </section>
+
+        <section aria-labelledby="adtech">
+          <h2 id="adtech">No advertising, no tracking</h2>
+          <p>
+            Glance contains no advertising SDKs, no analytics SDKs, and no
+            third-party tracking SDKs. Your data is not sold or shared with data
+            brokers. There is no ad profile of you, because there are no ads.
+          </p>
+        </section>
+
+        <section aria-labelledby="retention">
+          <h2 id="retention">How long data is kept</h2>
+          <p>
+            Account data (your phone number, profile choices, and matching
+            signals) is kept while your account exists. Call-activity metadata
+            and safety reports are kept as long as needed for matchmaking and
+            abuse prevention. Because calls are never recorded, there is no call
+            content to retain or delete.
+          </p>
+        </section>
+
+        <section aria-labelledby="delete">
+          <h2 id="delete">Deleting your data</h2>
+          <p>
+            You can request deletion of your account and associated data at any
+            time. Email <a href="mailto:privacy@glance.app">privacy@glance.app</a>
+            from, or referencing, the phone number on the account. Your account
+            and the data tied to it will be removed, except where limited records
+            must be kept to enforce a ban or comply with the law.
+          </p>
+        </section>
+
+        <section aria-labelledby="changes">
+          <h2 id="changes">Changes to this policy</h2>
+          <p>
+            If this policy changes, the effective date above will be updated.
+            Continuing to use Glance after a change means you accept the updated
+            policy. For anything unclear, email
+            <a href="mailto:privacy@glance.app">privacy@glance.app</a>.
+          </p>
+        </section>
+
+        <p class="doc__back">
+          <a href="index.html">← Back to Glance</a>
+        </p>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div class="site-footer__inner">
+          <nav class="footer-nav" aria-label="Footer">
+            <a class="footer-link" href="privacy.html">Privacy</a>
+            <a class="footer-link" href="terms.html">Terms</a>
+            <span class="gate">18+</span>
+            <a class="footer-link" href="mailto:privacy@glance.app">privacy@glance.app</a>
+          </nav>
+          <p class="site-footer__aside">Self-hosted on Fly.io</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

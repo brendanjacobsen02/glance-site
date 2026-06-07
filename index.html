@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glance — random campus video chat</title>
+    <meta
+      name="description"
+      content="Glance is random video chat for your campus. Tap to meet someone new, tap Next when you're done. 18+. Coming soon to the App Store."
+    />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Glance — random campus video chat" />
+    <meta
+      property="og:description"
+      content="Tap to meet someone new, tap Next when you're done. That's the whole app. 18+. Coming soon."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Display face fetched here (not via @import in styles.css) so the
+         preconnects above are actually used and the request runs in parallel
+         with the CSS — avoids a system-sans flash of the wordmark/headlines. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      // Swap the no-js class as early as possible so reveal animation can run.
+      document.documentElement.classList.remove('no-js');
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page">
+      <!-- Masthead: the one editorial detail. Wordmark left, issue line right. -->
+      <header class="masthead" aria-label="Glance">
+        <span class="wordmark">Glance</span>
+        <p class="masthead__meta">
+          Campus <span class="sep" aria-hidden="true">·</span> 18+
+          <span class="sep" aria-hidden="true">·</span> video
+        </p>
+      </header>
+
+      <main id="main">
+        <!-- Above the fold: bare. Headline, one line of grey, one quiet status. -->
+        <section class="hero" aria-labelledby="hero-title">
+          <h1 class="hero__title" id="hero-title">
+            Talk to someone new. Then someone else.
+          </h1>
+          <p class="hero__sub">
+            Random video chat for your campus. Tap to meet a stranger, tap Next
+            when you're done. That's the whole app.
+          </p>
+
+          <div class="hero__cta-row">
+            <!-- Coming-soon notice, not a live download: plain static text in a
+                 calm bordered chip. Not focusable or a live region — the visible
+                 words already carry the meaning. -->
+            <span class="cta">
+              <span class="cta__dot" aria-hidden="true"></span>
+              Coming soon to the App Store
+            </span>
+            <span class="cta__note">No link yet — we'll flip it on at launch.</span>
+          </div>
+        </section>
+
+        <!-- The ledger: hairline-separated rows, one continuous sheet. -->
+        <section class="ledger" aria-label="About Glance">
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">How it works</h2>
+            <p class="ledger__body">
+              Tap once, get matched with another person waiting, talk over live
+              video — tap Next to move on.
+            </p>
+          </div>
+
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">Who's here</h2>
+            <p class="ledger__body">
+              Adults 18+, verified by a real phone number. A quick face check
+              keeps the bots and fakes out.
+            </p>
+          </div>
+
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">Not recorded</h2>
+            <p class="ledger__body">
+              Video and audio go straight phone-to-phone over WebRTC — the
+              server brokers the intro and never sees the call.
+            </p>
+          </div>
+
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">Matched, not shuffled</h2>
+            <p class="ledger__body">
+              Interests and vibe plus a light read on personality nudge you
+              toward people you'd actually want to talk to.
+            </p>
+          </div>
+
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">Easy to leave</h2>
+            <p class="ledger__body">
+              Report and block live in the call. Bad actors get auto-banned and
+              reviewed by a human, not a queue.
+            </p>
+          </div>
+
+          <div class="ledger__item reveal">
+            <h2 class="ledger__title">The fine print</h2>
+            <p class="ledger__body">
+              Self-hosted, no data brokers. The
+              <a class="inline-link" href="privacy.html">Privacy Policy</a> and
+              <a class="inline-link" href="terms.html">Terms</a>, linked below —
+              short, plain, and worth a read.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div class="site-footer__inner">
+          <nav class="footer-nav" aria-label="Footer">
+            <a class="footer-link" href="privacy.html">Privacy</a>
+            <a class="footer-link" href="terms.html">Terms</a>
+            <span class="gate">18+</span>
+            <a class="footer-link" href="mailto:privacy@glance.app">privacy@glance.app</a>
+          </nav>
+          <p class="site-footer__aside">Self-hosted on Fly.io</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Reduced-motion-aware reveal. If reduced motion is requested, or
+      // IntersectionObserver is missing, everything is shown immediately.
+      (function () {
+        var items = document.querySelectorAll('.reveal');
+
+        function showAll() {
+          for (var i = 0; i < items.length; i++) {
+            items[i].classList.add('is-visible');
+          }
+        }
+
+        // Safety net: whatever happens with the observer below, never leave
+        // prose stuck at opacity:0. If anything threw before/while attaching,
+        // this forces any still-hidden .reveal visible shortly after load.
+        function safetyNet() {
+          window.setTimeout(showAll, 1200);
+        }
+        if (document.readyState === 'complete') {
+          safetyNet();
+        } else {
+          window.addEventListener('load', safetyNet);
+        }
+
+        var reduce =
+          window.matchMedia &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduce || !('IntersectionObserver' in window)) {
+          showAll();
+          return;
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+        );
+
+        items.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
