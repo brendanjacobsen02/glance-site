@@ -3,9 +3,9 @@
 Draft copy + answers for the App Store submission, written to match the app and
 the live site. Voice is the site's: dry, confident, nonchalant — not salesy.
 
-> **Still needed before submitting:** set the `DEMO_LOGIN` reviewer-bypass secret
-> (command in the checklist below) and provide screenshots. Contact email is set
-> (`leonzhou@berkeley.edu`, live on the site). Everything else below is paste-ready.
+> **Still to do before submitting:** set the `DEMO_LOGIN` secret (command below),
+> run `eas submit` to upload the build, then paste this into App Store Connect.
+> Contact email, screenshots (1284×2778), and the production build are all done.
 
 ## URLs (live now)
 - **Privacy Policy URL:** https://brendanjacobsen02.github.io/glance-site/privacy.html
@@ -109,8 +109,7 @@ Contact: leonzhou@berkeley.edu
    This matches the demo phone/code in the review notes; the bypass is implemented
    in `server/sms.ts`. Change the value if you prefer a different demo phone/code
    (keep the notes in sync).
-3. **Screenshots** — 6.7" (iPhone 15/16 Pro Max, 1290×2796) + 6.5"; optional iPad.
-   Capture onboarding, the "finding someone" home, and a call. *(See "What screenshots
-   are" — these are the marketing images on your product page, not a functional step.)*
-4. ~~**The build**~~ — ⏳ a production build is running on EAS; `eas submit` once it's done.
+3. ~~**Screenshots**~~ — ✅ done: four designed 6.5" frames at **1284×2778** in
+   `screenshots/png/` (drag into the 6.5" iPhone slot in App Store Connect).
+4. ~~**The build**~~ — ✅ done: production `.ipa` built on EAS; run `eas submit` to upload it.
 5. **Reviewer-call plan** — ✅ drafted in the notes (tester-on-call or two-device); confirm which.
