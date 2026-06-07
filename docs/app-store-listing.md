@@ -3,9 +3,9 @@
 Draft copy + answers for the App Store submission, written to match the app and
 the live site. Voice is the site's: dry, confident, nonchalant — not salesy.
 
-> **Placeholders to settle before submitting:** the contact email (currently a
-> dead `leonzhou@berkeley.edu` on the live site — swap for a real inbox), and the
-> screenshots (you must provide). Everything else below is ready to paste.
+> **Still needed before submitting:** set the `DEMO_LOGIN` reviewer-bypass secret
+> (command in the checklist below) and provide screenshots. Contact email is set
+> (`leonzhou@berkeley.edu`, live on the site). Everything else below is paste-ready.
 
 ## URLs (live now)
 - **Privacy Policy URL:** https://brendanjacobsen02.github.io/glance-site/privacy.html
@@ -78,7 +78,7 @@ relays encrypted media, stores nothing).
 ```
 Glance is 1-to-1 random video chat for adults (18+). Sign-in is by phone + SMS code.
 
-Demo account (no real SIM needed): phone {{DEMO_PHONE}}, code {{DEMO_CODE}}.
+Demo account (no real SIM needed): phone +1 510 555 0142, code 421337.
 Enter the phone, continue, enter the code. (Real numbers receive a code by SMS.)
 
 Camera & microphone are used only for the live call; calls are peer-to-peer and
@@ -90,9 +90,10 @@ reports within 24h (warn / suspend / permanently ban); repeat-reported accounts
 are auto-suspended. Because calls are live, moderation is reactive via this
 report/block/ban system.
 
-To see a matched call during review: {{REVIEW_CALL_PLAN — e.g. a teammate will be
-online at <time/contact>, or use two devices with the demo account + a second test
-number}}.
+To see a matched call during review: a tester will be online and waiting to be
+matched during your review window — email leonzhou@berkeley.edu to coordinate a
+time. Alternatively, sign in on two devices (the demo account above + any real
+phone number, which receives its code by SMS) to match them with each other.
 
 Privacy Policy: https://brendanjacobsen02.github.io/glance-site/privacy.html
 Terms / EULA: https://brendanjacobsen02.github.io/glance-site/terms.html
@@ -100,13 +101,16 @@ Contact: leonzhou@berkeley.edu
 ```
 
 ## What's still needed from you (blocks submission, not this doc)
-1. **Contact email** — a working inbox (swap the `leonzhou@berkeley.edu` placeholder
-   on the site + the `leonzhou@berkeley.edu` above).
-2. **`DEMO_LOGIN` Fly secret** — set `fly secrets set DEMO_LOGIN='+1...:CODE'` and
-   put that phone/code in the review notes above (the reviewer bypass — already
-   implemented in `server/sms.ts`).
-3. **Screenshots** — 6.7" (iPhone 15/16 Pro Max) + 6.5"; optional iPad. Capture the
-   onboarding, the "finding someone" home, and a call mock.
-4. **The build** — `eas build -p ios --profile production` then `eas submit`
-   (EAS already authed; the ASC app id is set, so submit is non-interactive).
-5. **A reviewer-call plan** — decide how a solo reviewer sees a real matched call.
+1. ~~**Contact email**~~ — ✅ done (`leonzhou@berkeley.edu`, live on the site + in the notes).
+2. **`DEMO_LOGIN` Fly secret** — run (an agent can't set a prod auth-bypass secret):
+   ```
+   fly secrets set DEMO_LOGIN='+15105550142:421337' -a glance-server
+   ```
+   This matches the demo phone/code in the review notes; the bypass is implemented
+   in `server/sms.ts`. Change the value if you prefer a different demo phone/code
+   (keep the notes in sync).
+3. **Screenshots** — 6.7" (iPhone 15/16 Pro Max, 1290×2796) + 6.5"; optional iPad.
+   Capture onboarding, the "finding someone" home, and a call. *(See "What screenshots
+   are" — these are the marketing images on your product page, not a functional step.)*
+4. ~~**The build**~~ — ⏳ a production build is running on EAS; `eas submit` once it's done.
+5. **Reviewer-call plan** — ✅ drafted in the notes (tester-on-call or two-device); confirm which.
