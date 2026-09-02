@@ -8,9 +8,9 @@ the live site. Voice is the site's: dry, confident, nonchalant — not salesy.
 > Contact email, screenshots (1284×2778), and the production build are all done.
 
 ## URLs (live now)
-- **Privacy Policy URL:** https://brendanjacobsen02.github.io/glance-site/privacy.html
-- **Marketing / Support URL:** https://brendanjacobsen02.github.io/glance-site/
-- **EULA:** https://brendanjacobsen02.github.io/glance-site/terms.html
+- **Privacy Policy URL:** https://lnzh07.github.io/glance-site/privacy.html
+- **Marketing / Support URL:** https://lnzh07.github.io/glance-site/
+- **EULA:** https://lnzh07.github.io/glance-site/terms.html
   (paste into the *custom EULA* field, or use Apple's standard EULA + this as your terms)
 
 ## Name & text fields
@@ -95,8 +95,8 @@ matched during your review window — email leonzhou@berkeley.edu to coordinate 
 time. Alternatively, sign in on two devices (the demo account above + any real
 phone number, which receives its code by SMS) to match them with each other.
 
-Privacy Policy: https://brendanjacobsen02.github.io/glance-site/privacy.html
-Terms / EULA: https://brendanjacobsen02.github.io/glance-site/terms.html
+Privacy Policy: https://lnzh07.github.io/glance-site/privacy.html
+Terms / EULA: https://lnzh07.github.io/glance-site/terms.html
 Contact: leonzhou@berkeley.edu
 ```
 
